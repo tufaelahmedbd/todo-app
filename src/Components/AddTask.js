@@ -4,15 +4,15 @@ const AddTask = ({ tasks, setTasks }) => {
   const [task, setTask] = useState("");
   const inputRef = useRef(null);
 
-  //Add Task Handle Event
+  //--Add Task Handle Event--
   const addSubmitHandler = (e) => {
     e.preventDefault();
-    //task post into server
+    //--task post into server--
     taskPosting(task);
     inputRef.current.blur();
     setTask("");
   };
-  //task posting
+  //--task posting--
   const taskPosting = async (text) => {
     const res = await fetch("https://imminent-blush-haumea.glitch.me/task", {
       method: "POST",
@@ -23,7 +23,7 @@ const AddTask = ({ tasks, setTasks }) => {
     });
 
     const data = await res.json();
-    //real time data updating
+    //--real time data updating--
     setTasks([...tasks, data]);
   };
 
